@@ -52,8 +52,27 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/firebase'
   ],
+  /*
+  ** Firebase config
+  */
+  firebase: {
+    config: {
+      apiKey: "AIzaSyCxnkku69JKLIs53ijY3CjQP8a_XCC4guc",
+      authDomain: "avada-web-app.firebaseapp.com",
+      databaseURL: "https://avada-web-app.firebaseio.com",
+      projectId: "avada-web-app",
+      storageBucket: "avada-web-app.appspot.com",
+      messagingSenderId: "851484904313",
+      appId: "1:851484904313:web:302d8be9c92f36be65fda8"
+    },
+    services: {
+      auth: true,
+      firestore: true
+    }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
