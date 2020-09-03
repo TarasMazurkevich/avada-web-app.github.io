@@ -35,6 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { src: '~/plugins/vuelidate' }
   ],
   /*
   ** Auto import components
@@ -60,13 +61,13 @@ export default {
   */
   firebase: {
     config: {
-      apiKey: "AIzaSyCxnkku69JKLIs53ijY3CjQP8a_XCC4guc",
-      authDomain: "avada-web-app.firebaseapp.com",
-      databaseURL: "https://avada-web-app.firebaseio.com",
-      projectId: "avada-web-app",
-      storageBucket: "avada-web-app.appspot.com",
-      messagingSenderId: "851484904313",
-      appId: "1:851484904313:web:302d8be9c92f36be65fda8"
+      apiKey: 'AIzaSyCxnkku69JKLIs53ijY3CjQP8a_XCC4guc',
+      authDomain: 'avada-web-app.firebaseapp.com',
+      databaseURL: 'https://avada-web-app.firebaseio.com',
+      projectId: 'avada-web-app',
+      storageBucket: 'avada-web-app.appspot.com',
+      messagingSenderId: '851484904313',
+      appId: '1:851484904313:web:302d8be9c92f36be65fda8'
     },
     services: {
       auth: true,
@@ -78,5 +79,19 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extend (config, ctx) {
+    // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
+        })
+      }
+    }
   }
 }
