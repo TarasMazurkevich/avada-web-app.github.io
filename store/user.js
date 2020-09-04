@@ -2,7 +2,8 @@ const state = {
   user: {
     fullName: '',
     email: '',
-    password: ''
+    password: '',
+    favorites: []
   }
 }
 
