@@ -31,8 +31,7 @@
         </p>
       </div>
     </main>
-    </form>
-    {{ submitStatus }}
+    <vue-snotify />
   </div>
 </template>
 
@@ -78,6 +77,7 @@ export default {
   methods: {
     async createNewUser () {
       this.$v.$touch()
+      const vm = this
 
       if (this.$v.$invalid) {
         this.submitStatus = 'ERROR'
@@ -98,9 +98,13 @@ export default {
           this.submitStatus = 'OK'
           this.$router.push('login')
         } catch (error) {
-          const errorCode = error.code
           const errorMessage = error.message
-          console.log(`${errorCode}: ${errorMessage}`)
+          vm.$snotify.error(`${errorMessage}`, {
+            timeout: 5000,
+            showProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true
+          })
           this.submitStatus = 'ERROR'
         }
       }

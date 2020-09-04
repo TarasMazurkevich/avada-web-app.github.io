@@ -24,7 +24,8 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' },
-      { rel: 'stylesheet', media: 'all', href: 'https://kit-free.fontawesome.com/releases/latest/css/free.min.css' }
+      { rel: 'stylesheet', media: 'all', href: 'https://kit-free.fontawesome.com/releases/latest/css/free.min.css' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/vue-snotify@3.2.1/styles/material.css' }
     ],
     scripts: [
       { crossorigin: 'anonymous', href: 'https://kit.fontawesome.com/92aca317b8.js' }
@@ -40,7 +41,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: '~/plugins/vuelidate' }
+    { src: '~/plugins/vuelidate' },
+    { src: '~/plugins/snotify' }
   ],
   /*
   ** Auto import components

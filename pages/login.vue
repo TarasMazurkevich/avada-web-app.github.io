@@ -26,7 +26,7 @@
       </div>
     </main>
     <footer class="login_footer" />
-    {{ submitStatus }}
+    <vue-snotify />
   </div>
 </template>
 
@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     async login () {
+      const vm = this
       this.$v.$touch()
 
       if (this.$v.$invalid) {
@@ -91,9 +92,13 @@ export default {
           this.submitStatus = 'OK'
           this.$router.push('/')
         } catch (error) {
-          const errorCode = error.code
           const errorMessage = error.message
-          console.log(`${errorCode}: ${errorMessage}`)
+          vm.$snotify.error(`${errorMessage}`, {
+            timeout: 5000,
+            showProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true
+          })
           this.submitStatus = 'ERROR'
         }
       }

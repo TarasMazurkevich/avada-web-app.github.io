@@ -290,6 +290,13 @@ export default {
     box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
     border-radius: 4px;
 
+    &:not(:first-child) {
+      margin-top: 1em;
+      @media screen and (min-width: 991px) {
+        margin-top: 0;
+      }
+    }
+
     @media screen and (min-width: 991px) {
       grid-template-rows: 220px 4em;
     }
