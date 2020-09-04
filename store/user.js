@@ -1,5 +1,6 @@
 const state = {
   user: {
+    id: '',
     fullName: '',
     email: '',
     password: '',
